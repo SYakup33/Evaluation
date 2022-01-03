@@ -43,21 +43,23 @@
     public function afficher_stats(){
         echo "Voici mon personnage et ses stats : \n \n";
         echo "name : ". $this->name.  ". \n";
-        echo "hp : ". $this->hp.  " hp. \n";
+            echo "hp : ". $this->hp.  " hp. \n";
         echo "attack : ". $this->attack.  " dmg. \n";
         echo "defense : ". $this->defense.  " def. \n";
         echo "mana : ". $this->mana.  " mana. \n";
         echo "items : ". $this->items.  " items. \n";
     }
-    public function addItems ($items1,$items2) {
-        array_push($this->items,"$items1","$items2");
-        }
+    
     public function searchItems($item) {
-        $test = [array_search($item,$this->items)];
-        if($test==false){
+        $test = array_search($item,$this->items);
+        if($test===false){
             return false;
-        } else if($test==true){
+        } else if($test===true){
             return $item;
         }
     }
+    public function addItems ($items1,$items2) {
+        array_push($this->items,"$items1","$items2");
+        }
+
 }
